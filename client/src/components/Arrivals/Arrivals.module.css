@@ -1,0 +1,43 @@
+.box {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  border: var(--border);
+  margin: 1rem 0;
+}
+
+.box:hover {
+  border: var(--border-hover);
+}
+
+.Image img {
+  height: 15rem;
+}
+
+.Content a {
+  text-decoration: underline;
+  color: var(--green);
+}
+
+.Content a:hover {
+  text-decoration: none;
+}
+
+.Content h3 {
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.Content h3:hover {
+  color: var(--green);
+}
+
+.Content p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin: 1rem;
+}
+

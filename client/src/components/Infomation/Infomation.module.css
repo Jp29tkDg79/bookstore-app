@@ -1,0 +1,62 @@
+.Info {
+  background: url(../../img/banner-bg.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.Row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.Content {
+  flex: 1 1 42rem;
+  text-align: center;
+  background-color: white;
+  padding: 3rem;
+}
+
+.Books-Slider {
+  flex: 1 1 42rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.Books-Slider a img {
+  height: 25rem;
+}
+
+.Books-Slider a:hover img {
+  transform: scale(.9);
+}
+
+.Stand {
+  width: 100%;
+  margin-top: -.3rem;
+}
+
+.Content h3 {
+  color: var(--black);
+  font-size: 4.5rem;
+}
+
+.Content p {
+  color: var(--light-color);
+  font-size: 1.4rem;
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .Content {
+    text-align: center;
+  }
+
+  .Content h3 {
+    font-size: 3.5rem;
+  }
+}

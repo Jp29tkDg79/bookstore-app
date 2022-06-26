@@ -1,0 +1,27 @@
+.Auth {
+  margin: 3rem auto;
+  width: 70%;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+
+}
+
+.Auth h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.toggle {
+  font-size: 1.7rem;
+  color: var(--green);
+  padding: .5rem;
+  border-radius: 4px;
+}
+
+.toggle:hover {
+  background-color: var(--dark-color);
+  color: white;
+}

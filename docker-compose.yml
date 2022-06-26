@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    image: bookstore-nginx:v1.0.0
+    container_name: bookstore-nginx
+    hostname: bookstore-nginx
+    volumes:
+      - ./client/dist:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+    ports:
+      - 80:80
+    tty: true
+    stdin_open: true
+    depends_on:
+      - client
+
+  client:
+    build:
+      context: client
+      dockerfile: Dockerfile
+    image: bookstore-client:v1.0.0
+    container_name: bookstore-client
+    hostname: bookstore-client
+    working_dir: /app
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    expose:
+      - 3000
+    command: sh -c "npm run build && npm run dev"
+    tty: true
+    stdin_open: true
+    restart: always

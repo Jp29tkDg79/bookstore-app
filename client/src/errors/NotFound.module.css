@@ -1,0 +1,28 @@
+.NotFoundContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
+.NotFoundBox {
+  text-align: center;
+}
+
+.NotFoundBox h2 {
+  font-size: 5rem;
+  margin: 2rem;
+}
+
+.NotFoundBox p {
+  margin: 3rem;
+  font-size: 2rem;
+}
+
+.NotFoundBox a {
+  font-size: 2rem;
+}
+
+.NotFoundBox a:hover {
+  color: var(--green);
+}

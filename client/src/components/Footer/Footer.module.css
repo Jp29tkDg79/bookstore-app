@@ -1,0 +1,39 @@
+.Footer {
+  text-align: center;
+  background-color: var(--green);
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 999;
+  height: 5rem;
+  display: none;
+}
+
+.Footer a {
+  font-size: 3rem;
+  padding: 2rem;
+  margin: 5rem;
+  color: white;
+}
+
+.Footer a:hover {
+  background-color: var(--dark-color);
+}
+
+.Footer a svg {
+  margin-top: 1.5rem;
+}
+
+/* media query */
+@media (max-width: 768px) {
+  .Footer {
+    display: block;
+    height: 5rem;
+  }
+
+  .Footer a {
+    font-size: 2rem;
+    margin: 2rem;
+  }
+}
