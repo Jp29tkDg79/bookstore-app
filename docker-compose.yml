@@ -35,3 +35,52 @@ services:
     tty: true
     stdin_open: true
     restart: always
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    image: bookstore-api:v1.0.0
+    container_name: bookstore-api
+    hostname: bookstore-api
+    working_dir: /app
+    volumes:
+      - ./api:/app
+    ports:
+      - 8000:8000
+    command: go run main.go
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: mariadb
+      dockerfile: Dockerfile
+    image: bookstore-db:v1.0.0
+    container_name: bookstore-db
+    hostname: bookstore-db
+    ports:
+      - 3306:3306
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./mariadb/db:/var/lib/mysql
+      - ./mariadb/log:/var/log/mysql
+      - ./mariadb/initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=passw0rd
+      - MYSQL_USER=book
+      - MYSQL_PASSWORD=pass1234
+      - MYSQL_DATABASE=books
+      - TZ=Asia/Tokyo
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
