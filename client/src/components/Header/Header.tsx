@@ -1,17 +1,23 @@
 import { useState, Fragment } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GiSecretBook } from "react-icons/gi";
 import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 
 import SearchBar from "../UI/SearchBar/SearchBar";
 
-import { HOME } from "../../constants/Routes";
+import { HOME, LOGIN } from "../../constants/Routes";
+
+import { useSelector } from "../../store";
 
 import classes from "./Header.module.css";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const location = useLocation();
+  const isLogin = useSelector((state) => state.curUser.isLogin);
+  const isHome = location.pathname === HOME;
 
   return (
     <Fragment>
@@ -20,20 +26,28 @@ const Header = () => {
           <GiSecretBook /> books
         </Link>
 
-        <SearchBar isOpen={isOpen} />
+        {isHome && <SearchBar isOpen={isOpen} />}
 
         <div className={classes.icons}>
-          <FaSearch
-            className={classes["search-btn"]}
-            onClick={() => setIsOpen(!isOpen)}
-          />
-          <Link to="#">
-            <FaHeart />
+          {isHome && (
+            <FaSearch
+              className={classes["search-btn"]}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          )}
+          {isLogin && (
+            <Link to="#">
+              <FaHeart />
+            </Link>
+          )}
+          {isLogin && (
+            <Link to="#">
+              <FaShoppingCart />
+            </Link>
+          )}
+          <Link to={LOGIN}>
+            <FaUser className={classes["login-btn"]} />
           </Link>
-          <Link to="#">
-            <FaShoppingCart />
-          </Link>
-          <FaUser className={classes["login-btn"]} />
         </div>
       </div>
       <div className={classes["header-2"]}>
