@@ -5,9 +5,9 @@ Bookstore sample application using google books
 
 googleBooksのAPIを使用し、ブックストアのサンプルサイト
 
-## 機能(※現状枠のみ)
+## 機能
 
-- ログイン・ログアウト機能
+- ログイン・ログアウト機能(実装済)
 - 本の検索機能(Google Books APIを使用)
 
 ## 必要要件
